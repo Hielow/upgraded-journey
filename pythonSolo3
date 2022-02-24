@@ -1,0 +1,30 @@
+k = 0
+l = 0
+m = 0
+S = [int(x) for x in input().split()]
+A = [int(x) for x in input().split()]
+B = [int(x) for x in input().split()]
+for i in range(len(S)):
+    if S[i] == 1:
+        k = k + 1
+g = k / len(S)
+g1 = 1 - g
+gini1 = 2 * g * g1
+
+for j in range(len(A)):
+    if A[j] == 1:
+        l = l + 1
+g2 = l / len(A)
+g3 = 1 - g2
+gini2 = 2 * g2 * g3
+
+for o in range(len(B)):
+    if B[o] == 1:
+        m = m + 1
+g4 = m / len(B)
+g5 = 1 - g4
+gini3 = 2 * g4 * g5
+
+infg = gini1 -(len(A) / len(S)) * gini2 - (len(B) / len(S)) * gini3
+
+print(round(infg, 5))
